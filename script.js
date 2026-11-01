@@ -1,4 +1,30 @@
-const foods = [
+// ─── 메뉴 목록 ─────────────────────────────────────────────
+
+const breakfastFoods = [
+  "토스트", "계란토스트", "에그샌드위치", "샌드위치", "베이글+크림치즈",
+  "시리얼+우유", "요거트+과일", "그래놀라+우유", "오트밀", "바나나+우유",
+  "계란후라이+김+밥", "계란말이+밥", "김치볶음밥", "스팸볶음밥", "주먹밥",
+  "삼각김밥+바나나우유", "참치김밥", "치즈김밥", "전복죽", "야채죽", "호박죽",
+  "누룽지", "미역국+밥", "북엇국+밥", "콩나물국밥", "된장찌개+밥",
+  "황태해장국", "샐러드+빵", "아보카도토스트", "프렌치토스트", "팬케이크",
+  "크루아상+커피", "호떡", "군고구마+우유", "떡국",
+  "편의점 샌드위치+우유", "식빵+딸기잼", "씨리얼바+두유", "닭가슴살샐러드", "맥모닝"
+];
+
+const lunchFoods = [
+  "김치찌개", "된장찌개", "순두부찌개", "부대찌개", "제육덮밥", "불고기덮밥",
+  "연어덮밥", "참치마요덮밥", "스팸마요덮밥", "치킨마요덮밥", "카레라이스",
+  "오므라이스", "김치볶음밥", "비빔밥", "육회비빔밥", "꼬막비빔밥",
+  "칼국수", "바지락칼국수+겉절이", "비빔국수+물만두", "냉모밀", "물냉+물만두",
+  "짜장면", "짬뽕", "짜장면+탕수육", "마파두부덮밥", "돈까스+우동",
+  "함박스테이크", "크림파스타", "토마토파스타", "해산물파스타", "토마토리조또",
+  "순대국밥", "돼지국밥", "뼈해장국", "육개장", "갈비탕", "삼계탕",
+  "쫄면", "라볶이", "떡볶이+튀김", "김밥+라면", "햄버거", "샌드위치",
+  "쌀국수", "나시고렝", "볶음우동", "규동", "초밥", "메밀국수", "수제비",
+  "불닭볶음면", "편의점 라면+삼김", "카레제육볶음", "스팸볶음밥", "고추잡채+꽃빵"
+];
+
+const dinnerFoods = [
   "김치찌개", "된장찌개", "부대찌개", "순두부찌개", "청국장", "육개장", "뼈해장국",
   "콩나물국밥", "황태해장국", "북엇국", "미역국", "오징어무국", "동태찌개", "갈비탕",
   "삼계탕", "닭곰탕", "감자탕", "소고기무국", "고등어조림", "꽁치김치조림",
@@ -13,27 +39,92 @@ const foods = [
   "감자전", "해물파전", "치즈라볶이", "불닭볶음면", "불닭마요덮밥", "닭강정",
 
   "물만두+짜파게티", "국수+열무김치", "초밥", "회", "편의점 라면+삼김", "물냉+물만두",
-  "타코야끼+불닭", "양념치킨(처가집순살!!)", "로제 떡볶이+튀김세트(김말이)", "닭갈비",
+  "타코야끼+불닭", "양념치킨(처가집순살!!)", "로제 떡볶이+튀김세트(김말이)",
   "열무비빔국수+만두", "불닭+핫바", "피자(고구마크러스트)+오븐스파게티", "소떡소떡",
   "츄러스", "대패삼겹살", "토스트", "떡만두국", "꽈배기", "순두부열라면+밥", "핫도그",
   "짜장면+탕수육", "비빔면+만두", "김치찌개+꼬슬밥", "크리스피도넛", "고기만두",
   "바지락칼국수+겉절이", "연어", "꼬막비빔밥", "대창", "냉모밀", "양꼬치",
-  "간장게장+꼬슬밥", "파스타", "김밥", "불닭쌈+핫바", "또띠아", "육회비빔밥",
+  "간장게장+꼬슬밥", "불닭쌈+핫바", "또띠아", "육회비빔밥",
   "짜장면+양념치킨(순살)", "마파두부덮밥", "카레", "닭강정+기름떡볶이", "보쌈+막국수",
   "토마토스파게티+고르곤졸라피자", "비빔국수+물만두", "훈제오리", "골뱅이무침+소면",
-  "스테이크", "고추잡채+꽃빵", "조개구이", "낙지볶음", "오이냉국", "메밀국수",
+  "스테이크", "고추잡채+꽃빵", "조개구이", "오이냉국", "메밀국수",
   "쫄면", "카레제육볶음", "수제비", "삼겹살 + 비빔면 + 된장찌개",
   "전복죽 + 젓갈 + 장조림 (가게에서 같이 주는 그 젓갈이랑 장조림)",
   "길거리 어묵 + 붕어빵", "돼지갈비 + 소면 + 양념게장샤브샤브",
   "겉절이+수육", "스팸볶음밥", "마늘바게트+스프", "돼지갈비+비빔냉면",
-  "삼겹살+된장찌개", "토스트", "불닭+김밥", "카구리+군만두",
+  "삼겹살+된장찌개", "불닭+김밥", "카구리+군만두",
   "오리고기+쌈", "돈까스+우동", "불고기+쌈(상추 깻잎 필수)", "명란젓", "월남쌈"
 ];
 
-function pickRandom() {
-  const idx = Math.floor(Math.random() * foods.length);
-  const food = foods[idx];
-  document.getElementById("result").textContent = `오늘 저녁은... 『${food}』 어때요? 🍴`;
+// ─── 끼니별 설정 ───────────────────────────────────────────
+const MEALS = {
+  breakfast: {
+    short: "아메추",
+    label: "아침",
+    emoji: "🍳",
+    subtitle: "아침메뉴 한번 정해보시긔긔 🍳",
+    foods: [...new Set(breakfastFoods)],
+  },
+  lunch: {
+    short: "점메추",
+    label: "점심",
+    emoji: "🍱",
+    subtitle: "점심메뉴 한번 정해보시긔긔 🍱",
+    foods: [...new Set(lunchFoods)],
+  },
+  dinner: {
+    short: "저메추",
+    label: "저녁",
+    emoji: "🍽️",
+    subtitle: "저녁메뉴 한번 정해보시긔긔 🍽️",
+    foods: [...new Set(dinnerFoods)],
+  },
+};
+
+// ─── 현재 시간으로 끼니 판단 ────────────────────────────────
+// 05:00~10:59 아침 / 11:00~16:59 점심 / 17:00~다음날 04:59 저녁
+function getMealByTime(date = new Date()) {
+  const h = date.getHours();
+  if (h >= 5 && h < 11) return "breakfast";
+  if (h >= 11 && h < 17) return "lunch";
+  return "dinner";
 }
 
-document.getElementById("pickBtn").addEventListener("click", pickRandom);
+let currentMeal = getMealByTime();
+
+// ─── 화면 갱신 ─────────────────────────────────────────────
+const titleEl = document.getElementById("title");
+const subtitleEl = document.getElementById("subtitle");
+const pickBtn = document.getElementById("pickBtn");
+const resultEl = document.getElementById("result");
+const tabEls = document.querySelectorAll(".tab");
+
+function applyMeal(meal) {
+  currentMeal = meal;
+  const m = MEALS[meal];
+
+  const title = `츄베릅 ${m.short}`;
+  titleEl.textContent = title;
+  document.title = title;
+  subtitleEl.textContent = m.subtitle;
+  pickBtn.textContent = `${m.short} 레츠고!`;
+  resultEl.textContent = "";
+
+  tabEls.forEach((tab) => {
+    tab.classList.toggle("active", tab.dataset.meal === meal);
+  });
+}
+
+function pickRandom() {
+  const m = MEALS[currentMeal];
+  const food = m.foods[Math.floor(Math.random() * m.foods.length)];
+  resultEl.textContent = `오늘 ${m.label}은... 『${food}』 어때요? ${m.emoji}`;
+}
+
+// ─── 이벤트 ────────────────────────────────────────────────
+pickBtn.addEventListener("click", pickRandom);
+tabEls.forEach((tab) => {
+  tab.addEventListener("click", () => applyMeal(tab.dataset.meal));
+});
+
+applyMeal(currentMeal);
