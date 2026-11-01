@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,41 +34,11 @@ h1 {
 
 .subtitle {
   font-size: 2.2rem;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
 
-/* 아침/점심/저녁 선택 탭 */
-.tabs {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 30px;
-}
-
-.tab {
-  padding: 8px 24px;
-  font-size: 1.3rem;
-  background-color: rgba(255,255,255,0.35);
-  color: #222;
-  border: 2px solid transparent;
-  border-radius: 999px;
-  cursor: pointer;
-  font-family: "Gungsuh", "궁서", serif;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.tab:hover {
-  transform: scale(1.08);
-  background-color: rgba(255,255,255,0.6);
-}
-
-.tab.active {
-  background-color: #fff;
-  border-color: #222;
-  font-weight: bold;
-}
-
-#pickBtn {
+button {
   padding: 20px 50px;
   font-size: 2rem;
   background-color: rgba(255,255,255,0.9);
@@ -80,7 +50,7 @@ h1 {
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-#pickBtn:hover {
+button:hover {
   transform: scale(1.1);
   background-color: #fff;
 }
@@ -94,15 +64,4 @@ h1 {
   border-radius: 20px;
   color: #222;
   text-shadow: 1px 1px 3px #fff;
-}
-
-#result:empty {
-  display: none;
-}
-
-@media (max-width: 700px) {
-  h1 { font-size: 3rem; }
-  .subtitle { font-size: 1.4rem; }
-  #pickBtn { font-size: 1.5rem; padding: 16px 36px; }
-  #result { font-size: 1.8rem; padding: 18px 24px; }
 }
